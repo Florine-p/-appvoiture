@@ -1,0 +1,7 @@
+<%= @reservation.voiture.title %>
+
+<p><%= @reservation.date_debut %> <%= @reservation.date_fin %></p>
+<p><%= @reservation.heure_debut %> <%= @reservation.heure_fin %></p>
+
+<%= link_to "Modifiez", edit_reservation_path(@reservation) %>
+<%= link_to "Supprimez", @reservation, method: :delete, data: { confirm: "Are you sure ?"}  %>

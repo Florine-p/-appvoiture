@@ -1,0 +1,13 @@
+<%= simple_form_for [@voiture, @reservation] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <%= f.input :date_debut %>
+    <%= f.input :date_fin %>
+    <%= f.input :heure_debut %>
+    <%= f.input :heure_fin %>
+    <%= f.input :nb_km %>
+
+    <%= f.button :submit%>
+  
+<% end %>

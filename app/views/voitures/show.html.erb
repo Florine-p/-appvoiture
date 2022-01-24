@@ -1,0 +1,10 @@
+<ul>
+  <h1><%= @voiture.title %></h1>
+  <p><%= @voiture.description %></p>
+  <p> Price : <%=@voiture.price %> € </p>
+  <p>Model : <%=@voiture.model %></p>
+</ul>
+<%= link_to "Réservez", new_voiture_reservation_path(@voiture) %>
+      
+    
+

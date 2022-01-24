@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_083725) do
+ActiveRecord::Schema.define(version: 2022_01_24_090613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "date_debut"
+    t.date "date_fin"
+    t.time "heure_debut"
+    t.time "heure_fin"
+    t.integer "nb_km"
+    t.bigint "user_id", null: false
+    t.bigint "voiture_id", null: false
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.index ["voiture_id"], name: "index_reservations_on_voiture_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +41,15 @@ ActiveRecord::Schema.define(version: 2022_01_24_083725) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "voitures", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.text "description"
+    t.integer "price"
+    t.string "model"
+  end
+
+  add_foreign_key "reservations", "users"
+  add_foreign_key "reservations", "voitures"
 end
