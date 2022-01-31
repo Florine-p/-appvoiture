@@ -1,10 +1,16 @@
-<ul>
-  <h1><%= @voiture.title %></h1>
-  <p><%= @voiture.description %></p>
-  <p> Price : <%=@voiture.price %> € </p>
-  <p>Model : <%=@voiture.model %></p>
-</ul>
-<%= link_to "Réservez", new_voiture_reservation_path(@voiture) %>
-      
     
+<div class="card-trip">
+  <%= image_tag @voiture.photo %>
+  <div class="card-trip-infos">
+    <div>
+      <h1><%= @voiture.title %></h1>
+      <p><%= @voiture.description %></p>
+      <p>Model : <%=@voiture.model %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%=@voiture.price %> €</h2>
+  </div>
+</div>
 
+    
+<%= link_to "Réservez", new_voiture_reservation_path(@voiture), :class=> "btn btn-primary" %>
+<%= link_to "Back", voitures_path(@voiture), :class=> "btn btn-primary" %>

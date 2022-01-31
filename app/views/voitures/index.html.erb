@@ -1,6 +1,19 @@
 <% @voitures.each do |voiture| %>
-<li>
-<%= link_to voiture.title, voiture %>
-</li>
+
+<div class="card-product" >
+   <%= image_tag voiture.photo %>
+  
+  <div class="card-product-infos">
+    <h2><%= link_to voiture.title, voiture %></h2>
+    <p><strong>Modèle :</strong> <%= voiture.model %></p>
+    <p> <strong>Description :</strong> <%= voiture.description %></p>
+    <p> <strong>Prix :</strong> <%= voiture.price %> € </p>
+    
+  </div>
+</div>
+
 
 <% end %>
+
+
+
